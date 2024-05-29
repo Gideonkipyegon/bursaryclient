@@ -1,0 +1,44 @@
+.header {
+    background-color: rgb(48, 98, 155);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    margin-right: 40%;
+    height: 2vh;
+    font-size: large;
+    padding: 30px;
+}
+
+.header1 {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-right: -40px;
+}
+
+a {
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+    gap: 10px;
+    color: rgb(236, 236, 243);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: 550;
+    text-decoration: none;
+    /* width:103vw; */
+}
+
+a:hover {
+    color: rgb(8, 10, 10);
+    text-decoration: underline;
+}
+
+.logo {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: -20px;
+    color: rgb(10, 10, 10);
+    /* border-radius: 50%; */
+}

@@ -1,0 +1,37 @@
+.homecontainer {
+    overflow: hidden;
+    height: 100vh;
+    width: 103vw;
+    background-color: rgb(216, 205, 205);
+    background-image: url('./images/moneybackground.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.homeimage {
+    display: flex;
+    animation: moveImages 10s linear infinite;
+    height: 100vh;
+    width: 400%;
+    /* Adjust the duration and timing function as needed */
+}
+
+@keyframes moveImages {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+.bg1,
+.bg2,
+.bg3,
+.bg4 {
+    width: 100%;
+    /* Each image takes up 25% of the container */
+    height: auto;
+    /* Maintain aspect ratio */
+}

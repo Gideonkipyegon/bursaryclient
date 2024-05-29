@@ -1,0 +1,29 @@
+.footer {
+    background-color: rgb(48, 98, 155);
+    height: 35vh;
+    font-family: sans-serif;
+    font-size: larger;
+    font-weight: 200;
+    padding: 30px;
+    color: aliceblue;
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    width: 100vw;
+    overflow: auto;
+}
+
+.footer1 {
+    gap: 20px;
+    padding: 2px;
+    text-align: center;
+    border-right: 2px red solid;
+    border-bottom: 2px red solid;
+    line-height: 18px;
+}
+
+h5 {
+    text-decoration: underline;
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

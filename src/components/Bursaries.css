@@ -1,0 +1,31 @@
+.admin {
+    align-items: center;
+    /* display: flex; */
+    background-color: rgb(252, 243, 237);
+    margin-top: -30px;
+    justify-content: center;
+    height: 50vh;
+}
+
+h2 {
+    margin-left: 100px;
+    padding-top: 40px;
+    text-align: center;
+}
+
+.adminform3 {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #7e7474;
+    margin-left: 450px;
+    align-content: center;
+    gap: 10px;
+    width: 50vw;
+    padding-bottom: 60px;
+    text-align: center;
+    border: 1px solid rgb(168, 64, 64);
+    margin-top: 5px;
+    height: 20vh;
+}

@@ -1,0 +1,36 @@
+.signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(252, 243, 237);
+    height: 95vh;
+    width: 100%;
+}
+
+.signupform {
+    display: flex;
+    flex-direction: column;
+    /* background-color: #FFFFFF; */
+    width: 30vw;
+    height: 83vh;
+    /* margin-top: 10px; */
+    align-items: center;
+    text-align: left;
+    border-radius: 10px;
+    font-family: 'serif';
+    font-size: large;
+    padding-top: 5px;
+    border-color: 2px solid black;
+}
+
+.signupform input {
+    width: 70%;
+    margin-left: 0px;
+    align-items: center;
+}
+
+.signupform button {
+    width: 30%;
+    align-items: center;
+    border-radius: 15px;
+}
