@@ -28,9 +28,9 @@ function Bursaries() {
           });
   }
   return (
-    <div className='signup'>
-      <fieldset>
-      <form className='signupform3' onSubmit = { handleSubmit(onSubmit)}>
+    <div className='bur'>
+      
+      <form className='burform3' onSubmit = { handleSubmit(onSubmit)}>
         <h3 style={{textDecoration:'underline'}}>Bursary Application</h3>
         <label htmlFor="">Name:</label>
         <input type="text" {...register("Name")} placeholder='your name' />
@@ -44,7 +44,7 @@ function Bursaries() {
         <p>{errors.Amount?.message}</p>
         <button type='submit'>Apply</button>
       </form>
-      </fieldset>
+    
     </div>
   )
 }

@@ -4,7 +4,7 @@
     align-items: center;
     background-color: rgb(252, 243, 237);
     height: 95vh;
-    width: 100%;
+    width: 103vw;
 }
 
 .signupform {
@@ -12,7 +12,7 @@
     flex-direction: column;
     /* background-color: #FFFFFF; */
     width: 30vw;
-    height: 83vh;
+    height: 70vh;
     /* margin-top: 10px; */
     align-items: center;
     text-align: left;

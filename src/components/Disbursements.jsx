@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { apidomain } from '../utils/domains.js';
-import './Disbursements.css';
+import './disbursements.css';
 
 function Disbursements() {
   const [disbursements, setDisbursements] = useState([]);

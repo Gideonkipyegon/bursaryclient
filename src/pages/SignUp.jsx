@@ -31,6 +31,7 @@ function SignUp() {
   return (
     <div className='signup'>
       <fieldset>
+      <legend style={{textAlign:'center',fontFamily:'fantasy',fontSize:"20px"}}>SignUp</legend>
       <form className='signupform' onSubmit = { handleSubmit(onSubmit)}>
         <label htmlFor="">Name:</label>
         <input type="text" {...register("Name")} placeholder='Your name' />

@@ -27,7 +27,7 @@ a {
     font-size: large;
     font-weight: 550;
     text-decoration: none;
-    /* width:103vw; */
+    
 }
 
 a:hover {
@@ -40,5 +40,5 @@ a:hover {
     justify-content: flex-start;
     margin-left: -20px;
     color: rgb(10, 10, 10);
-    /* border-radius: 50%; */
+    
 }

@@ -5,49 +5,53 @@ import { apidomain } from '../utils/domains.js';
 import './LoanApplicationlist.css';
 
 function LoanApplicationlist() {
-  const [parkingSpots, setParkingSpots] = useState([]);
-  const [newSpotData, setNewSpotData] = useState({
-    SpotNumber: '',
-    SpotType: '',
-    Availability: '',
-    Floor: '',
+  const [Bursaries, setBursaries] = useState([]);
+  const [newBursariesData, setNewBursariesData] = useState({
+    BursaryID: '',
+    Name: '',
+    Description: '',
+    EligibilityCriteria: '',
+    Amount: '',
+    Deadline: '',
   });
   const { user } = useContext(Context);
 
   useEffect(() => {
-    getParkingSpots();
+    getBursaries();
   }, []);
 
-  const getParkingSpots = async () => {
+  const getBursaries = async () => {
     try {
-      const res = await axios.get(`${apidomain}/Applications`);
-      setParkingSpots(res.data);
+      const res = await axios.get(`${apidomain}/Bursaries`);
+      setBursaries(res.data);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const handleCreateSpot = async () => {
+  const handleCreateBursaries = async () => {
     try {
-      const res = await axios.post(`${apidomain}/Applications`, newSpotData);
-      setApplications([...Applications, res.data]);
-      setNewSpotData({
-        SpotNumber: '',
-        SpotType: '',
-        Availability: '',
-        Floor: '',
+      const res = await axios.post(`${apidomain}/Applications`, newBursariesData);
+      setBursaries([...Bursaries, res.data]);
+      setNewBursariesData({
+        BursaryID: '',
+        Name: '',
+        Description: '',
+        EligibilityCriteria: '',
+        Amount: '',
+        Deadline: '',
       });
-      alert('Spot added successfully!');
+      alert('Application added successfully!');
     } catch (error) {
       console.log(error);
     }
   };
 
-  const handleDeleteSpot = async (spotId) => {
+  const handleDeleteBursaries = async (BursaryID) => {
     try {
-      await axios.delete(`${apidomain}/ParkingSpots/${spotId}`);
-      setParkingSpots(parkingSpots.filter(spot => spot.SpotID !== spotId));
-      alert('Spot deleted successfully!');
+      await axios.delete(`${apidomain}/Bursary/${BursaryID}`);
+      setBursaries(Bursaries.filter(Bursaries => Bursaries.BursaryID !== BursaryID));
+      alert('Application deleted successfully!');
     } catch (error) {
       console.log(error);
     }
@@ -55,53 +59,68 @@ function LoanApplicationlist() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setNewSpotData(prevData => ({
+    setNewBursariesData(prevData => ({
       ...prevData,
       [name]: value,
     }));
   };
 
   return (
-    <div className="parking_spots_wrapper">
-      <div className="create_spot_form">
+    <div className="applications_wrapper">
+      <div className="create_application_form">
         <input
           type="text"
-          name="SpotNumber"
-          value={newSpotData.SpotNumber}
+          name="BursaryID"
+          value={newBursariesData.BursaryID}
           onChange={handleChange}
-          placeholder="Spot Number"
+          placeholder="Bursary ID"
         />
         <input
           type="text"
-          name="SpotType"
-          value={newSpotData.SpotType}
+          name="Name"
+          value={newBursariesData.Name}
           onChange={handleChange}
-          placeholder="Spot Type"
+          placeholder="Name"
         />
         <input
           type="text"
-          name="Availability"
-          value={newSpotData.Availability}
+          name="Description"
+          value={newBursariesData.Description}
           onChange={handleChange}
-          placeholder="Availability"
+          placeholder="Description"
         />
         <input
           type="text"
-          name="Floor"
-          value={newSpotData.Floor}
+          name="EligibilityCriteria"
+          value={newBursariesData.EligibilityCriteria}
           onChange={handleChange}
-          placeholder="Floor"
+          placeholder="Eligibility Criteria"
         />
-        <button onClick={handleCreateSpot}>Add Spot</button>
+        <input
+          type="text"
+          name="Amount"
+          value={newBursariesData.Amount}
+          onChange={handleChange}
+          placeholder="Amount"
+        />
+        <input
+          type="text"
+          name="Deadline"
+          value={newBursariesData.Deadline}
+          onChange={handleChange}
+          placeholder="Deadline"
+        />
+        <button onClick={handleCreateBursaries}>Add Application</button>
       </div>
-      {parkingSpots.map((spot) => (
-        <div className="card" key={spot.SpotID}>
-          <p>Spot ID: {spot.SpotID}</p>
-          <p>Spot Number: {spot.SpotNumber}</p>
-          <p>Spot Type: {spot.SpotType}</p>
-          <p>Availability: {spot.Availability}</p>
-          <p>Floor: {spot.Floor}</p>
-          <button onClick={() => handleDeleteSpot(spot.SpotID)}>Delete</button>
+      {Bursaries.map((Bursaries) => (
+        <div className="card" key={Bursaries.BursaryID}>
+          <p>Bursary ID: {Bursaries.BursaryID}</p>
+          <p>Name: {Bursaries.Name}</p>
+          <p>Description: {Bursaries.Description}</p>
+          <p>Eligibility Criteria: {Bursaries.EligibilityCriteria}</p>
+          <p>Amount: {Bursaries.Amount}</p>
+          <p>Deadline: {Bursaries.Deadline}</p>
+          <button onClick={() => handleDeleteBursaries(Bursaries.BursaryID)}>Delete</button>
         </div>
       ))}
     </div>

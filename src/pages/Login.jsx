@@ -12,7 +12,7 @@ function Login() {
   // const { user, dispatch } = useContext(Context);
   const navigate = useNavigate();
   const schema = yup.object().shape({
-    FirstName: yup.string().required('First is required'),
+    FirstName: yup.string().required('Name is required'),
     password: yup.string().required('password is required').min(4, 'password is too short'),
   });
 
@@ -36,8 +36,9 @@ function Login() {
   return (
     <div className='login'>
       <fieldset>
+      <legend style={{textAlign:'center',fontFamily:'fantasy',fontSize:"20px"}}>Login Page</legend>
         <form className="loginform" onSubmit={handleSubmit(onSubmit)}>
-        <h3><u>Login page</u></h3>
+        {/* <h3><u>Login page</u></h3> */}
         <label htmlFor="">Name</label>
         <input type="text" {...register('Name')} placeholder="Yourname"/>
         <p>{errors.FirstName?.message}</p>
