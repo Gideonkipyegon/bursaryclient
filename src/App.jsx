@@ -26,7 +26,6 @@ function App() {
       <Route path='/LoanApplicationlist' element={<LoanApplicationlist />}/>
       <Route path='/Bursaries' element={<Bursaries />}/>
       <Route path='/Disbursements' element={<Disbursements />}/>
-      {/* <Route path='/Admin' element={<Admin />}/> */}
       <Route path='/Login' element={<Login />}/>
       <Route path='/Signup' element={<SignUp />}/>
       <Route path='/About' element={<About />}/>
