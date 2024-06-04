@@ -31,7 +31,7 @@ function Bursaries() {
     <div className='bur'>
       
       <form className='burform3' onSubmit = { handleSubmit(onSubmit)}>
-        <h3 style={{textDecoration:'underline'}}>Bursary Application</h3>
+        <h3 style={{textDecoration:'underline',marginTop:"110px"}}>Bursary Application</h3>
         <label htmlFor="">Name:</label>
         <input type="text" {...register("Name")} placeholder='your name' />
         <p>{errors.Name?.message}</p>
