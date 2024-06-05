@@ -13,20 +13,25 @@ function Disbursements() {
   const getDisbursements = async () => {
     try {
       const res = await axios.get(`${apidomain}/disbursements`);
+      console.log('API Response:', res.data); // Log the API response
       setDisbursements(res.data);
     } catch (error) {
-      console.log(error);
+      console.error('Error fetching disbursements:', error);
     }
   };
 
   return (
     <div className="disbursements-wrapper">
-      {disbursements.map((disbursement) => (
-        <div className="card" key={disbursement.id}>
-          <p>Amount to pay: ${disbursement.amount}</p>
-          <p>Disbursement Date: {disbursement.disbursementDate}</p>
-        </div>
-      ))}
+      {disbursements.length > 0 ? (
+        disbursements.map((disbursement) => (
+          <div className="card" key={disbursement.id}>
+            <p>Amount to pay: ${disbursement.amount}</p>
+            <p>Disbursement Date: {disbursement.disbursementDate}</p>
+          </div>
+        ))
+      ) : (
+        <p>No disbursements available.</p>
+      )}
     </div>
   );
 }

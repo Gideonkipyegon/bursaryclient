@@ -4,20 +4,21 @@
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
-    gap: 15px;
-    margin: 25px,25px;
     display: flex;
+    flex-direction: row; /* Changed to row for horizontal layout */
     width: 95vw;
-    text-align: center;
+    text-align: left; /* Changed to left for horizontal layout */
     justify-content: space-between;
+    align-items: center; /* Ensures items are vertically centered */
 }
 
 .card p {
-    margin: 5px 0;
+    margin: 0 10px; /* Adjusted margin for horizontal layout */
 }
 
-.parking_spots_wrapper {
+.applications_wrapper {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
 }

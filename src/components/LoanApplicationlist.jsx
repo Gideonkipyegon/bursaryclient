@@ -4,9 +4,9 @@ import { Context } from '../context/parkingContext/Context.jsx';
 import { apidomain } from '../utils/domains.js';
 import './LoanApplicationlist.css';
 
-function LoanApplicationlist() {
-  const [Bursaries, setBursaries] = useState([]);
-  const [newBursariesData, setNewBursariesData] = useState({
+function LoanApplicationList() {
+  const [bursaries, setBursaries] = useState([]);
+  const [newBursaryData, setNewBursaryData] = useState({
     BursaryID: '',
     Name: '',
     Description: '',
@@ -25,15 +25,15 @@ function LoanApplicationlist() {
       const res = await axios.get(`${apidomain}/Bursaries`);
       setBursaries(res.data);
     } catch (error) {
-      console.log(error);
+      console.error('Error fetching bursaries:', error);
     }
   };
 
-  const handleCreateBursaries = async () => {
+  const handleCreateBursary = async () => {
     try {
-      const res = await axios.post(`${apidomain}/Applications`, newBursariesData);
-      setBursaries([...Bursaries, res.data]);
-      setNewBursariesData({
+      const res = await axios.post(`${apidomain}/Bursaries`, newBursaryData);
+      setBursaries([...bursaries, res.data]);
+      setNewBursaryData({
         BursaryID: '',
         Name: '',
         Description: '',
@@ -41,25 +41,25 @@ function LoanApplicationlist() {
         Amount: '',
         Deadline: '',
       });
-      alert('Application added successfully!');
+      alert('Bursary added successfully!');
     } catch (error) {
-      console.log(error);
+      console.error('Error adding bursary:', error);
     }
   };
 
-  const handleDeleteBursaries = async (BursaryID) => {
+  const handleDeleteBursary = async (BursaryID) => {
     try {
-      await axios.delete(`${apidomain}/Bursary/${BursaryID}`);
-      setBursaries(Bursaries.filter(Bursaries => Bursaries.BursaryID !== BursaryID));
-      alert('Application deleted successfully!');
+      await axios.delete(`${apidomain}/Bursaries/${BursaryID}`);
+      setBursaries(bursaries.filter(bursary => bursary.BursaryID !== BursaryID));
+      alert('Bursary deleted successfully!');
     } catch (error) {
-      console.log(error);
+      console.error('Error deleting bursary:', error);
     }
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setNewBursariesData(prevData => ({
+    setNewBursaryData(prevData => ({
       ...prevData,
       [name]: value,
     }));
@@ -71,60 +71,60 @@ function LoanApplicationlist() {
         <input
           type="text"
           name="BursaryID"
-          value={newBursariesData.BursaryID}
+          value={newBursaryData.BursaryID}
           onChange={handleChange}
           placeholder="Bursary ID"
         />
         <input
           type="text"
           name="Name"
-          value={newBursariesData.Name}
+          value={newBursaryData.Name}
           onChange={handleChange}
           placeholder="Name"
         />
         <input
           type="text"
           name="Description"
-          value={newBursariesData.Description}
+          value={newBursaryData.Description}
           onChange={handleChange}
           placeholder="Description"
         />
         <input
           type="text"
           name="EligibilityCriteria"
-          value={newBursariesData.EligibilityCriteria}
+          value={newBursaryData.EligibilityCriteria}
           onChange={handleChange}
           placeholder="Eligibility Criteria"
         />
         <input
           type="text"
           name="Amount"
-          value={newBursariesData.Amount}
+          value={newBursaryData.Amount}
           onChange={handleChange}
           placeholder="Amount"
         />
         <input
           type="text"
           name="Deadline"
-          value={newBursariesData.Deadline}
+          value={newBursaryData.Deadline}
           onChange={handleChange}
           placeholder="Deadline"
         />
-        <button onClick={handleCreateBursaries}>Add Application</button>
+        <button onClick={handleCreateBursary}>Add Bursary</button>
       </div>
-      {Bursaries.map((Bursaries) => (
-        <div className="card" key={Bursaries.BursaryID}>
-          <p>Bursary ID: {Bursaries.BursaryID}</p>
-          <p>Name: {Bursaries.Name}</p>
-          <p>Description: {Bursaries.Description}</p>
-          <p>Eligibility Criteria: {Bursaries.EligibilityCriteria}</p>
-          <p>Amount: {Bursaries.Amount}</p>
-          <p>Deadline: {Bursaries.Deadline}</p>
-          <button onClick={() => handleDeleteBursaries(Bursaries.BursaryID)}>Delete</button>
+      {bursaries.map((bursary) => (
+        <div className="card" key={bursary.BursaryID}>
+          <p>Bursary ID: {bursary.BursaryID}</p>
+          <p>Name: {bursary.Name}</p>
+          <p>Description: {bursary.Description}</p>
+          <p>Eligibility Criteria: {bursary.EligibilityCriteria}</p>
+          <p>Amount: {bursary.Amount}</p>
+          <p>Deadline: {bursary.Deadline}</p>
+          <button onClick={() => handleDeleteBursary(bursary.BursaryID)}>Delete</button>
         </div>
       ))}
     </div>
   );
 }
 
-export default LoanApplicationlist;
+export default LoanApplicationList;

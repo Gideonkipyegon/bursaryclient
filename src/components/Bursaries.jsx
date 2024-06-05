@@ -38,7 +38,9 @@ function Bursaries() {
         <label htmlFor="">Reason For Application:</label>
         <input type="text" {...register("Description")} placeholder='Reason' />
         <p>{errors.Description?.message}</p>
+        <label htmlFor="">Area of specialization:</label>
         <input type="text" {...register("EligibilityCriteria")} placeholder='Area of specialization' />
+        <label htmlFor="">Amount:</label>
         <p>{errors.EligibilityCriteria?.message}</p>
         <input type="text" {...register("Amount")} placeholder='Amount' />
         <p>{errors.Amount?.message}</p>

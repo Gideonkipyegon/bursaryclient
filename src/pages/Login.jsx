@@ -12,8 +12,8 @@ function Login() {
   // const { user, dispatch } = useContext(Context);
   const navigate = useNavigate();
   const schema = yup.object().shape({
-    FirstName: yup.string().required('Name is required'),
-    password: yup.string().required('password is required').min(4, 'password is too short'),
+    Name: yup.string().required('Name is required'),
+    Password: yup.string().required('password is required').min(4, 'password is too short'),
   });
 
   const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) });
@@ -43,7 +43,7 @@ function Login() {
         <input type="text" {...register('Name')} placeholder="Yourname"/>
         <p>{errors.FirstName?.message}</p>
         <label htmlFor="">Password</label>
-        <input type="password" {...register('password')} placeholder="password"/>
+        <input type="password" {...register('Password')} placeholder="password"/>
         <p>{errors.password?.message}</p>
         <a href="Signup" style={{color:'black',fontFamily:'serif'}}>i don't account?</a>
         <button type='submit'>Login</button>

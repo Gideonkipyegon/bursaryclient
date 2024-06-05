@@ -6,12 +6,13 @@ function Header() {
     <div className='header'>
       <h3 className="logo" style={{fontFamily:"sans-serif",fontWeight:'bold'}}>ScholarEase</h3>
       <div className='header1'>
-      <Link  to='/Home'>Home</Link>
+      <Link  to='/home'>Home</Link>
       <Link  to='/Bursaries'>Bursaries</Link>
       <Link  to='/Disbursements'>Disbursements</Link>
       <Link  to='/LoanApplicationlist'>Applicationlist</Link>
       <Link  to='/About'>About</Link>
       <Link  to='/Contact'>Contact</Link>
+      <Link  to='/Status'>Status</Link>
       <Link  to='/Login'>Login</Link>
       <Link  to='/Signup'>Signup</Link>
       </div>
