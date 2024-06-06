@@ -49,11 +49,32 @@ function LoanApplicationList() {
 
   const handleDeleteBursary = async (BursaryID) => {
     try {
-      await axios.delete(`${apidomain}/Bursaries/${BursaryID}`);
-      setBursaries(bursaries.filter(bursary => bursary.BursaryID !== BursaryID));
-      alert('Bursary deleted successfully!');
+      const url = `${apidomain}/Bursaries/${BursaryID}`;
+      console.log('Attempting to delete bursary with URL:', url);
+      const res = await axios.delete(url);
+      console.log('Delete response:', res);
+      if (res.status === 200 || res.status === 204) {
+        setBursaries(bursaries.filter(bursary => bursary.BursaryID !== BursaryID));
+        alert('Bursary deleted successfully!');
+      } else {
+        console.error('Failed to delete bursary:', res);
+        alert('Failed to delete bursary. Please try again.');
+      }
     } catch (error) {
-      console.error('Error deleting bursary:', error);
+      if (error.response) {
+        // Server responded with a status other than 200 range
+        console.error('Error response data:', error.response.data);
+        console.error('Error response status:', error.response.status);
+        console.error('Error response headers:', error.response.headers);
+      } else if (error.request) {
+        // Request was made but no response received
+        console.error('Error request:', error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.error('Error message:', error.message);
+      }
+      console.error('Error config:', error.config);
+      alert('Error deleting bursary. Please check the console for more details.');
     }
   };
 

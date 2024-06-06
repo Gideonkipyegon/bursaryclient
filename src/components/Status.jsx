@@ -11,9 +11,18 @@ export class Status extends Component {
 
   // Method to handle application submission
   handleApplication = () => {
-    // Assuming some logic here to submit the application
-    // Once the application is submitted, update the status
+    // Logic to submit the application
     this.setState({ status: 'Pending' });
+  }
+
+  // Method to approve the application
+  handleApprove = () => {
+    this.setState({ status: 'Approved' });
+  }
+
+  // Method to reject the application
+  handleReject = () => {
+    this.setState({ status: 'Rejected' });
   }
 
   render() {
@@ -28,6 +37,8 @@ export class Status extends Component {
           {status === 'Rejected' && <p>We regret to inform you that your application has been rejected.</p>}
         </div>
         <button className="status-button" onClick={this.handleApplication}>Apply for Bursary</button>
+        <button className="status-button" onClick={this.handleApprove}>Approve Application</button>
+        <button className="status-button" onClick={this.handleReject}>Reject Application</button>
       </div>
     );
   }
